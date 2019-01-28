@@ -6,11 +6,14 @@ const setCache = (storageName: TStorageName) =>
       try {
         const storage = window[storageName];
 
-        storage.setItem(key, JSON.stringify({
-          cachedAt: new Date().getTime(),
-          data,
-          identifyKey,
-        }));
+        storage.setItem(
+          key,
+          JSON.stringify({
+            cachedAt: new Date().getTime(),
+            data,
+            identifyKey,
+          }),
+        );
 
         return true;
       } catch (err) {

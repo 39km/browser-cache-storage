@@ -19,7 +19,10 @@
     "type": "git",
     "url": "git+https://github.com/kisug/browser-cache-storage.git"
   },
-  "keywords": ["localStorage", "cache"],
+  "keywords": [
+    "localStorage",
+    "cache"
+  ],
   "author": "Kim Seong-Gu <dev.ksg09@gmail.com> (kisug.me)",
   "license": "ISC",
   "bugs": {
