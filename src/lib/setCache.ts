@@ -8,14 +8,12 @@ const setCache = (storageName: TStorageName) =>
 
         storage.setItem(key, JSON.stringify({
           cachedAt: new Date().getTime(),
-          identifyKey,
           data,
+          identifyKey,
         }));
 
         return true;
       } catch (err) {
-        console.error(err);
-
         return null;
       }
     }
