@@ -1,4 +1,4 @@
-export type TIdentifyKey = string | number;
+export type TUniqId = string | number;
 
 export interface Indexable {
   [key: string]: any;
