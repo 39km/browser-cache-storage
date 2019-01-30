@@ -1,13 +1,13 @@
 import {Indexable, TIdentifyKey, TStorageName} from '../types';
 
-const setCache = (storageName: TStorageName) =>
+const setCache = (storageName: TStorageName, keyPrefix: string) =>
   function set(identifyKey: TIdentifyKey, key: string, data: Indexable) {
     if (typeof window !== 'undefined') {
       try {
         const storage = window[storageName];
-
+        const cacheKey = `${keyPrefix}.${key}`;
         storage.setItem(
-          key,
+          cacheKey,
           JSON.stringify({
             cachedAt: new Date().getTime(),
             data,
