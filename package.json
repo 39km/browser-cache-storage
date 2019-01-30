@@ -1,6 +1,6 @@
 {
   "name": "browser-cache-storage",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "cache data with local storage or session storage simply",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -39,6 +39,9 @@
     "typescript": "^3.2.4"
   },
   "files": [
-    "dist/**/*"
+    "LICENSE",
+    "package.json",
+    "index.js",
+    "dist"
   ]
 }
