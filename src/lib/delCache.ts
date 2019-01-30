@@ -7,8 +7,9 @@ const delCache = (storageName: TStorageName, keyPrefix: string) =>
         const cacheKey = `${keyPrefix}.${key}`;
         const storage = window[storageName];
         storage.removeItem(cacheKey);
+        return true;
       } catch (err) {
-        return null;
+        return false;
       }
     }
     return false;
