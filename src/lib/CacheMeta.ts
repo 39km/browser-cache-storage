@@ -58,10 +58,7 @@ class CacheMeta {
   public setCache(cacheKey: string) {
     const [isIn, meta] = this.isInMeta(cacheKey);
     if (!isIn) {
-      meta.caches = [
-        ...meta.caches,
-        cacheKey,
-      ];
+      meta.caches = [...meta.caches, cacheKey];
       this.storage.setItem(this.key, JSON.stringify(meta));
     }
   }
@@ -84,10 +81,9 @@ class CacheMeta {
     if (typeof meta !== 'object') {
       return false;
     }
-    return Object
-      .keys(meta)
-      .every(key => META_KEYS.indexOf(key) !== -1
-        && META_KEY_VALIDATION[key](meta[key as keyof ICacheMeta]));
+    return Object.keys(meta).every(
+      key => META_KEYS.indexOf(key) !== -1 && META_KEY_VALIDATION[key](meta[key as keyof ICacheMeta]),
+    );
   }
 }
 
