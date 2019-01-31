@@ -36,7 +36,11 @@ $ yarn add browser-cache-storage
 | cacheKey 	| key of cache data. 'cache.' prefix will attached automatically. if cacheKey is 'boardData' then LocalCache.get method return localStorage.getItem('cache.boardData') 	| O 	|
 | preserveTime 	| relative time to check wheter the saved data is valid. it used like the "It's valid during {preserveTime} after saved". if you set preserveTime to 6000, then the cached data is valid only in 6 second after data saved. if expired then get method return null and delete the data.  !! it is not automatically delete with timer like cookie. it only delete when you access data with get method. 	| O 	|
   
-   
+**(LocalCache || SessionCache).clear**
+*No Paramters*
+delete all cache data which saved through browser-cache-storage
+
+
 # Examples
 ```
 const cacheKey = 'myCacheData';
@@ -60,4 +64,9 @@ console.log(SessionCache.get(sessionId, cacheKey, data);
 SessionCache.del(cacheKey);
 console.log(SessionCache.get(sessionId, cacheKey, data);
 console.log(sessionStorage.getItem(`cache.${cacheKey}`));
+```
+
+```
+LocalCache.clear();
+SessionCache.clear();
 ```
