@@ -66,6 +66,20 @@ class CacheMeta {
     }
   }
 
+  public getCacheKeys() {
+    const [_, meta] = this.isInMeta('');
+    return meta.caches;
+  }
+
+  public clear() {
+    const keys = this.getCacheKeys();
+    const storage = this.storage;
+    keys.forEach(key => {
+      storage.removeItem(key);
+    });
+    storage.setItem(this.key, JSON.stringify(defaultMeta()));
+  }
+
   private isValidMeta(meta: Indexable) {
     if (typeof meta !== 'object') {
       return false;
