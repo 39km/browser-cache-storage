@@ -1,6 +1,7 @@
 import {CACHE_KEYS} from '../constants/caches';
 import {DAY} from '../constants/times';
 import {TStorageName, TUniqId} from '../types';
+import CacheMeta from './CacheMeta';
 
 const getCache = (storageName: TStorageName, keyPrefix: string) =>
   function get(uniqId: TUniqId, key: string, preserveTime = DAY) {
@@ -15,6 +16,10 @@ const getCache = (storageName: TStorageName, keyPrefix: string) =>
             storage.removeItem(cacheKey);
 
             return null;
+          }
+          const meta = new CacheMeta(keyPrefix, storage);
+          if (!meta.isInMeta(cacheKey)[0]) {
+            meta.setCache(cacheKey);
           }
 
           return parsed.data;

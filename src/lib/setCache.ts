@@ -1,4 +1,5 @@
 import {Indexable, TStorageName, TUniqId} from '../types';
+import CacheMeta from './CacheMeta';
 
 const setCache = (storageName: TStorageName, keyPrefix: string) =>
   function set(uniqId: TUniqId, key: string, data: Indexable) {
@@ -15,13 +16,16 @@ const setCache = (storageName: TStorageName, keyPrefix: string) =>
           }),
         );
 
+        const meta = new CacheMeta(keyPrefix, storage);
+        meta.setCache(cacheKey);
+
         return true;
       } catch (err) {
-        return null;
+        return false;
       }
     }
 
-    return null;
+    return false;
   };
 
 export default setCache;
