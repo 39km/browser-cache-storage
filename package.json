@@ -1,6 +1,6 @@
 {
   "name": "browser-cache-storage",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "cache data with local storage or session storage simply",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
