@@ -4,7 +4,7 @@ interface ICacheMeta {
   caches: string[];
 }
 
-const defaultMeta = () => ({
+export const defaultMeta = () => ({
   caches: [],
 });
 
